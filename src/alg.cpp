@@ -2,9 +2,9 @@
 
 int cbinsearch(int *arr, int size, int value) {
   //  поместить сюда реализацию алгоритма
-  return 0;
     int counter = 0;
-    int leftBorder = 0, rightBorder = size - 1;
+    int leftBorder = 0;
+    int rightBorder = size - 1;
     while (rightBorder - leftBorder > 1) {
         int midBorder = (leftBorder + rightBorder) / 2;
         if (arr[midBorder] == value) {
@@ -27,4 +27,5 @@ int cbinsearch(int *arr, int size, int value) {
         }
     }
     return counter;
+    return 0;
 }
