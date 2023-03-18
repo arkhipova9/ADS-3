@@ -9,23 +9,21 @@ int cbinsearch(int *arr, int size, int value) {
         int midBorder = (leftBorder + rightBorder) / 2;
         if (arr[midBorder] == value) {
             counter++;
-            int num = midBorder + 1;
-            while (num <= rightBorder && arr[num] == value) {
-                counter++;
-                num++;
-            }
-            num = midBorder - 1;
+            int num = midBorder - 1;
             while (num >= leftBorder && arr[num] == value) {
                 counter++;
                 num--;
             }
+            num = midBorder + 1;
+            while (num <= rightBorder && arr[num] == value) {
+                counter++;
+                num++;
+            }
             break;
-        }
-        else if (arr[midBorder] > value) {
-            rightBorder = midBorder - 1;
-        }
-        else {
-            leftBorder = midBorder + 1;
+        } else if (arr[midBorder] < value) {
+          leftBorder = midBorder + 1;
+        } else {
+          rightBorder = midBorder - 1;
         }
     }
     return counter;
