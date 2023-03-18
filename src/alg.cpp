@@ -9,15 +9,11 @@ int cbinsearch(int *arr, int size, int value) {
         int midBorder = (leftBorder + rightBorder) / 2;
         if (arr[midBorder] == value) {
             counter++;
-            int num = midBorder - 1;
-            while (num >= leftBorder && arr[num] == value) {
+            for (int num = midBorder + 1; num <= rightBorder && arr[num] == value; num++) {
                 counter++;
-                num--;
             }
-            num = midBorder + 1;
-            while (num <= rightBorder && arr[num] == value) {
+            for (int num = midBorder - 1; num >= leftBorder && arr[num] == value; num--) {
                 counter++;
-                num++;
             }
             return counter;
         } else if (arr[midBorder] < value) {
